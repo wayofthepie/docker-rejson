@@ -1,10 +1,10 @@
 FROM ubuntu:17.04
-
+ARG VERSION=4.0.2
 RUN apt-get update -y && apt-get install -y build-essential wget &&\
-  wget https://github.com/antirez/redis/archive/4.0-rc3.tar.gz &&\
-  tar xvf 4.0-rc3.tar.gz &&\
-  rm 4.0-rc3.tar.gz &&\
-  cd redis-4.0-rc3 &&\
+  wget https://github.com/antirez/redis/archive/$VERSION.tar.gz &&\
+  tar xvf $VERSION.tar.gz &&\
+  rm $VERSION.tar.gz &&\
+  cd redis-$VERSION &&\
   make &&\
   cp src/redis-server /bin &&\
   cp src/redis-cli /bin &&\
